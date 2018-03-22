@@ -1,0 +1,13 @@
+# dependencies
+web/node_modules
+
+# logs
+web/npm-debug.log
+
+# Nuxt build
+web/.nuxt
+
+# Nuxt generate
+web/dist
+
+deployment_steps.txt

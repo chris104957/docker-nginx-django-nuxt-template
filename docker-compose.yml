@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+
+    volumes:
+      - .:/backend
+    expose:
+      - "8000"
+
+  nginx:
+    image: nginx:latest
+    container_name: ng01
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/backend
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - backend
+
+  web:
+    build: ./web
+    ports:
+      - "80:3000"
